@@ -78,14 +78,14 @@ const Lightbox = (($) => {
 
 			this._isBootstrap3 = $.fn.modal.Constructor.VERSION[0] == 3;
 
-			let h4 = `<h4 class="modal-title">${this._config.title || "&nbsp;"}</h4>`;
-			let btn = `<button type="button" class="close" data-dismiss="modal" aria-label="${this._config.strings.close}"><span aria-hidden="true">&times;</span></button>`;
+			let h4 = `<h4 class="Modal_Title modal-title">${this._config.title || "&nbsp;"}</h4>`;
+			let btn = `<button type="button" class="Modal_Close close" data-dismiss="modal" aria-label="${this._config.strings.close}"><span aria-hidden="true">CLOSE [X]</span></button>`;
 
-			let header = `<div class="modal-header${this._config.title || this._config.alwaysShowClose ? '' : ' hide'}">`+(this._isBootstrap3 ? btn+h4 : h4+btn)+`</div>`;
-			let footer = `<div class="modal-footer${this._config.footer ? '' : ' hide'}">${this._config.footer || "&nbsp;"}</div>`;
-			let body = '<div class="modal-body"><div class="ekko-lightbox-container"><div class="ekko-lightbox-item fade in show"></div><div class="ekko-lightbox-item fade"></div></div></div>'
-			let dialog = `<div class="modal-dialog" role="document"><div class="modal-content">${header}${body}${footer}</div></div>`
-			$(this._config.doc.body).append(`<div id="${this._modalId}" class="ekko-lightbox modal fade" tabindex="-1" tabindex="-1" role="dialog" aria-hidden="true">${dialog}</div>`)
+			let header = `<div class="Modal_Header modal-header${this._config.title || this._config.alwaysShowClose ? '' : ' hide'}">`+(this._isBootstrap3 ? btn+h4 : h4+btn)+`</div>`;
+			let footer = `<div class="Modal_footer modal-footer${this._config.footer ? '' : ' hide'}">${this._config.footer || "&nbsp;"}</div>`;
+			let body = '<div class="Modal_body modal-body"><div class="ekko-lightbox-container"><div class="ekko-lightbox-item fade in show"></div><div class="ekko-lightbox-item fade"></div></div></div>'
+			let dialog = `<div class="modal-dialog" role="document"><div class="Modal_Content modal-content">${header}${body}${footer}</div></div>`
+			$(this._config.doc.body).append(`<div id="${this._modalId}" class="Modal Modal__ekko_lightbox ekko-lightbox modal fade" tabindex="-1" tabindex="-1" role="dialog" aria-hidden="true">${dialog}</div>`)
 
 			this._$modal = $(`#${this._modalId}`, this._config.doc)
 			this._$modalDialog = this._$modal.find('.modal-dialog').first()
