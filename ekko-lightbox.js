@@ -545,6 +545,7 @@ const Lightbox = (($) => {
 					let image = $('<img />');
 					image.attr('src', img.src);
 					image.addClass('img-fluid');
+					image.addClass('img-responsive');
 
 					// backward compatibility for bootstrap v3
 					image.css('width', '100%');
