@@ -1,11 +1,3 @@
-/*!
- * Lightbox for Bootstrap by @ashleydw
- * https://github.com/ashleydw/lightbox
- *
- * License: https://github.com/ashleydw/lightbox/blob/master/LICENSE
- */
-+function ($) {
-
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -33,6 +25,7 @@ var Lightbox = (function ($) {
 			type: 'Could not detect remote target type. Force the type using data-type'
 		},
 		doc: document, // if in an iframe can specify top.document
+		max_width: 920,
 		onShow: function onShow() {},
 		onShown: function onShown() {},
 		onHide: function onHide() {},
@@ -588,7 +581,8 @@ var Lightbox = (function ($) {
 
 				// if width > the available space, scale down the expected width and height
 				var widthBorderAndPadding = this._padding.left + this._padding.right + this._border.left + this._border.right;
-				var maxWidth = Math.min(width + widthBorderAndPadding, this._config.doc.body.clientWidth);
+				//let maxWidth = Math.min(width + widthBorderAndPadding, this._config.doc.body.clientWidth)
+				var maxWidth = Math.min(width + widthBorderAndPadding, this._config.max_width);
 				if (width + widthBorderAndPadding > maxWidth) {
 					height = (maxWidth - widthBorderAndPadding) / width * height;
 					width = maxWidth;
@@ -657,5 +651,3 @@ var Lightbox = (function ($) {
 	return Lightbox;
 })(jQuery);
 //# sourceMappingURL=ekko-lightbox.js.map
-
-}(jQuery);

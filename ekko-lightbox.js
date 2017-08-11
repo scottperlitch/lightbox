@@ -19,6 +19,7 @@ const Lightbox = (($) => {
 			type: 'Could not detect remote target type. Force the type using data-type',
 		},
 		doc: document, // if in an iframe can specify top.document
+    max_width: 920,
 		onShow() {},
 		onShown() {},
 		onHide() {},
@@ -585,7 +586,8 @@ const Lightbox = (($) => {
 
 			// if width > the available space, scale down the expected width and height
 			let widthBorderAndPadding = this._padding.left + this._padding.right + this._border.left + this._border.right
-			let maxWidth = Math.min(width + widthBorderAndPadding, this._config.doc.body.clientWidth)
+			//let maxWidth = Math.min(width + widthBorderAndPadding, this._config.doc.body.clientWidth)
+			let maxWidth = Math.min(width + widthBorderAndPadding, this._config.max_width)
 			if((width + widthBorderAndPadding) > maxWidth) {
 				height = ((maxWidth - widthBorderAndPadding) /  width) * height
 				width = maxWidth
