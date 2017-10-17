@@ -1,14 +1,6 @@
 .ekko-lightbox-container {
   position: relative;
 }
-.ekko-lightbox-container > div.ekko-lightbox-item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-}
 .ekko-lightbox iframe {
   width: 100%;
   height: 100%;
